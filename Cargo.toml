@@ -1,7 +1,18 @@
 [package]
 name = "reishi"
-version = "0.0.0"
+version = "0.0.1"
+authors = ["ForsakenLisp"]
 edition = "2018"
+readme = "README.md"
+repository = "https://github.com/ForsakenLisp/reishi.git"
+description = """
+Toy programming language written in rust.
+"""
+keywords = [
+    "programming-language",
+    "reishi",
+]
+
 
 [dependencies]
 logos = "0.12.0"
