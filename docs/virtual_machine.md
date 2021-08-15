@@ -3,11 +3,11 @@
 
 ### Virtual Machine Specifications
 ## Choosing Stack Over Register Based:
-    Deciding between a stack based and register based virtual machine was difficult,
+Deciding between a stack based and register based virtual machine was difficult,
 but choosing stack based came down to a few things.
-    * Easier to implement
-    * Toy project
-    * Simplicity of instructions
+* Easier to implement
+* Toy project
+* Simplicity of instructions
 
 
 ### Bytecode Instruction Specifications
