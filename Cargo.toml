@@ -2,6 +2,7 @@
 name = "reishi"
 version = "0.0.1"
 authors = ["ForsakenLisp"]
+license = "MIT"
 edition = "2018"
 readme = "README.md"
 repository = "https://github.com/ForsakenLisp/reishi.git"
