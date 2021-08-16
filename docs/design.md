@@ -1,0 +1,3 @@
+### Design Thoughts:
+#### Author: Liam Eckert
+Originally this was going to be running on a stack based virtual machine, but I would like to make this a self hosting compiler. The code generation will generate Rust code and then compile that down so eventually I hope to be able to create use Rust crates in Reishi. Reishi will be strongly typed with no global variables and only immutable variables. This will make the memory foot print extremely small. I am naming the code gen portion of this crate Amanita after a red white dotted mushroom. 
