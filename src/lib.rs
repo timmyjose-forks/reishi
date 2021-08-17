@@ -1,2 +1,1 @@
-mod amanita;
-mod reishi;
+pub mod reishi;
