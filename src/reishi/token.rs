@@ -1,5 +1,6 @@
 pub enum Token {
-    Identifier(Vec<char>),
+    Character(char),
+    Number(char),
     Plus,
     Minus,
     Multiply,
@@ -19,7 +20,6 @@ pub enum Token {
     LeftSquare,
     RightSquare,
     Quote,
-    Apostrophe,
     Comma,
     QuestionMark,
     Period,
@@ -27,4 +27,5 @@ pub enum Token {
     Pound,
     Dollar,
     Percent,
+    Unknown,
 }
