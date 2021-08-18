@@ -11,7 +11,6 @@ pub fn is_letter(input: char) -> bool {
 pub struct Lexer {
     input: Vec<char>,
     position: usize,
-    read_position: usize,
     current_char: char,
 }
 
@@ -21,14 +20,12 @@ impl Lexer {
         Self { 
             input: unprocessed_input.chars().collect(),
             position: 0,
-            read_position: 0,
-            current_char: 'a',
+            current_char: unprocessed_input.chars().nth(0).unwrap(),
         }
     }
 
     pub fn next_char(&mut self) {
         self.position = self.position + 1;
-        self.read_position = self.position;
         self.current_char = self.input[self.position];
     }
 
@@ -66,7 +63,7 @@ impl Lexer {
                 }else if is_number(self.current_char) {
                     Token::Number(self.current_char)
                 }else{
-                    Token::Unknown
+                    Token::Unknown{c: self.current_char, position: self.position}
                 }
             },
         }

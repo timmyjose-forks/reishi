@@ -1,3 +1,4 @@
+#[derive(Debug, PartialEq)]
 pub enum Token {
     Character(char),
     Number(char),
@@ -27,5 +28,5 @@ pub enum Token {
     Pound,
     Dollar,
     Percent,
-    Unknown,
+    Unknown{c: char, position: usize,},
 }
