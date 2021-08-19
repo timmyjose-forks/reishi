@@ -1,4 +1,5 @@
 use super::token::Token as Token;
+use super::token::TokenType as TokenType;
 
 pub fn is_number(input: char) -> bool {
     '0' <= input && input <= '9'
@@ -31,39 +32,91 @@ impl Lexer {
 
     pub fn read_char(&mut self) -> Token {
         match self.current_char {
-            '+' => Token::Plus,
-            '-' => Token::Minus,
-            '*' => Token::Multiply,
-            '/' => Token::Divide,
-            '=' => Token::Assign,
-            '!' => Token::Bang,
-            '>' => Token::GreaterThan,
-            '<' => Token::LessThan,
-            '&' => Token::And,
-            '|' => Token::Pipe,
-            ';' => Token::Semicolon,
-            '(' => Token::LeftParen,
-            ')' => Token::RightParen,
-            '{' => Token::LeftBracket,
-            '}' => Token::RightBracket,
-            ':' => Token::Colon,
-            '[' => Token::LeftSquare,
-            ']' => Token::RightSquare,
-            '"' => Token::Quote,
-            ',' => Token::Comma,
-            '?' => Token::QuestionMark,
-            '.' => Token::Period,
-            '_' => Token::Underscore,
-            '#' => Token::Pound,
-            '$' => Token::Dollar,
-            '%' => Token::Percent,
+            '+' => {
+                Token::new(TokenType::Plus, self.position, self.current_char)
+            },
+            '-' => {
+                Token::new(TokenType::Minus, self.position, self.current_char)
+            },
+            '*' => {
+                Token::new(TokenType::Multiply, self.position, self.current_char)
+            }
+            '/' => {
+                Token::new(TokenType::Divide, self.position, self.current_char)
+            },
+            '=' => {
+                Token::new(TokenType::Assign, self.position, self.current_char)
+            },
+            '!' => {
+                Token::new(TokenType::Bang, self.position, self.current_char)
+            },
+            '>' => {
+                Token::new(TokenType::GreaterThan, self.position, self.current_char)
+            },
+            '<' => {
+                Token::new(TokenType::LessThan, self.position, self.current_char)
+            },
+            '&' => {
+                Token::new(TokenType::And, self.position, self.current_char)
+            },
+            '|' => {
+                Token::new(TokenType::Pipe, self.position, self.current_char)
+            },
+            ';' => {
+                Token::new(TokenType::Semicolon, self.position, self.current_char)
+            },
+            '(' => {
+                Token::new(TokenType::LeftParen, self.position, self.current_char)
+            },
+            ')' => {
+                Token::new(TokenType::RightParen, self.position, self.current_char)
+            },
+            '{' => {
+                Token::new(TokenType::LeftBracket, self.position, self.current_char)
+            },
+            '}' => {
+                Token::new(TokenType::RightBracket, self.position, self.current_char)
+            },
+            ':' => {
+                Token::new(TokenType::Colon, self.position, self.current_char)
+            },
+            '[' => {
+                Token::new(TokenType::LeftSquare, self.position, self.current_char)
+            },
+            ']' => {
+                Token::new(TokenType::RightSquare, self.position, self.current_char)
+            },
+            '"' => {
+                Token::new(TokenType::Quote, self.position, self.current_char)
+            },
+            ',' => {
+                Token::new(TokenType::Comma, self.position, self.current_char)
+            },
+            '?' => {
+                Token::new(TokenType::QuestionMark, self.position, self.current_char)
+            },
+            '.' => {
+                Token::new(TokenType::Period, self.position, self.current_char)
+            },
+            '_' => {
+                Token::new(TokenType::Underscore, self.position, self.current_char)
+            },
+            '#' => {
+                Token::new(TokenType::Pound, self.position, self.current_char)
+            },
+            '$' => {
+                Token::new(TokenType::Dollar, self.position, self.current_char)
+            },
+            '%' => {
+                Token::new(TokenType::Percent, self.position, self.current_char)
+            },
             _ => {
                 if is_letter(self.current_char) {
-                    Token::Character(self.current_char)
+                    Token::new(TokenType::Character, self.position, self.current_char)
                 }else if is_number(self.current_char) {
-                    Token::Number(self.current_char)
+                    Token::new(TokenType::Number, self.position, self.current_char)
                 }else{
-                    Token::Unknown{c: self.current_char, position: self.position}
+                    Token::new(TokenType::Unknown, self.position, self.current_char)
                 }
             },
         }

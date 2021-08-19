@@ -1,7 +1,13 @@
+pub struct Token {
+    pub token_type: TokenType,
+    pub token_place: usize,
+    pub token_char: char,
+}
+
 #[derive(Debug, PartialEq)]
-pub enum Token {
-    Character(char),
-    Number(char),
+pub enum TokenType {
+    Character,
+    Number,
     Plus,
     Minus,
     Multiply,
@@ -28,5 +34,17 @@ pub enum Token {
     Pound,
     Dollar,
     Percent,
-    Unknown{c: char, position: usize,},
+    Unknown,
+}
+
+impl Token {
+    
+    pub fn new(token_type: TokenType, token_place: usize, token_char: char) -> Self {
+        Self {
+            token_type,
+            token_place,
+            token_char,
+        }
+    }
+
 }
