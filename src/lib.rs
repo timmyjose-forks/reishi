@@ -1,6 +1,5 @@
-pub mod reishi;
+mod reishi;
 use crate::reishi::*;
-
 
 #[cfg(test)]
 mod tests {
